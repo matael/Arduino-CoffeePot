@@ -2,3 +2,33 @@ Arduino Coffee Pot
 ==================
 
 Let's try to write a kind of arduino sketch and a python script to interface a coffee pot with teh webz !
+
+
+Technical part
+--------------
+
+So... i've read the begining of an [instructable](http://www.instructables.com/id/Tweet-a-Pot-Twitter-Enabled-Coffee-Pot/) about this idea.
+As far as i understood, the guy was talking about a __Power switch tail__ to switch on and off the coffee pot... he gave us a link but i don't really want to pay $25 for this device (+$14 shipping...) given that I bought my coffee pot 10€...
+
+I'll assume that a hypothetical switching circuit has been correctly built and is put between the 13 pin of the arduino and the coffee pot.
+So, we'll use something like that :
+
+
+    +---------+                                 _____+Vcc
+    |         |                                   |
+    |         |       +---------+           +-----------+
+    |    C    |       |         |           |           |
+    |    O    |       |    A  13|>---------<| Switching |>--+   __________
+    |    M    | U S B |    R    |           |  Circuit  |   |  |          )
+    |    P    |>-----<|    D    |           |           |   |  |         /
+    |    U    |       |    U    |           +-----------+   |  |   |\_ _/
+    |    T    |       |    I    |                 |         |  |   |__V__
+    |    E    |       |    N    |                 |         |  |   |(   )`,
+    |    R    |       |    O    |                 |         |  |   |(___).'
+    |         |       |      GND|>--+             |         +--|   `------.     
+    |         |       +---------+   +-------------+------------/___________\
+    +---------+                                 __|__GND
+                                                /////
+
+
+
