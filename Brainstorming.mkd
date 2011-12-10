@@ -1,0 +1,4 @@
+Arduino Coffee Pot
+==================
+
+Let's try to write a kind of arduino sketch and a python script to interface a coffee pot with teh webz !
