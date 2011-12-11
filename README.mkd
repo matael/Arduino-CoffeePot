@@ -4,6 +4,15 @@ Arduino Coffee Pot
 Let's try to write a kind of arduino sketch and a python script to interface a coffee pot with teh webz !
 
 
+Requirements
+------------
+
+To bind your coffee pot, you'll some pieces of code...
+
+- [python-twitter](http://code.google.com/p/python-twitter/)
+- [pySerial](http://pyserial.sourceforge.net/)
+
+
 Technical part
 --------------
 
@@ -31,4 +40,27 @@ So, we'll use something like that :
                                                 /////
 
 
+Software part
+-------------
 
+The backend which interact with twitter and control the coffee pot is written in Python.
+It use __python-twitter__ to interact with the Internet and pyserial (and an arduino board) to discuss with the coffee pot.
+
+How-to connect my coffee pot
+----------------------------
+
+So... i'll try to build the correct switching circuit soon.
+To setup your arduino, just run
+
+    $ make && make upload
+
+(make sure to have `avr-gcc` and `avrdude` installed)
+
+Then, fill correctly your credentials and of informatios in the __SETUP__ part of the python script and run :
+
+    $ python bridge.py
+
+Now, your coffee pot should start every time you send a tweet containing the right tag (default : _#givemecoffee_) to the account the script is monitoring.
+To stop the coffeepot, just another tweet containing another tag (default: _#thanksforcoffee_).
+
+Have fun !
