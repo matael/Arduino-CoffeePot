@@ -29,7 +29,6 @@ update_time = 30                                                # Time between 2
 
 def do_coffee(api, ser):
     """Must i send a signal to the coffee pot ?"""
-    print(" Fonction DoCoffee...") # DEBUG
     mention = api.GetMentions()[:1]
     if mention[0].user._screen_name == master_name:
         if re_start.search(mention[0].text):
