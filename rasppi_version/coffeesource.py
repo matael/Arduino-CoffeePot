@@ -40,6 +40,8 @@ import time
 import signal
 
 from settings import *
+RE_START = re.compile(RE_START)
+RE_STOP = re.compile(RE_STOP)
 
 def setup_gpio():
     """ Setup function """

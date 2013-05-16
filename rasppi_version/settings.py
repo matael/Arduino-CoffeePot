@@ -24,10 +24,10 @@ TOKEN_SECRET = ''
 MASTER_NAME = u''
 
 # pattern to start coffeepot
-RE_START = re.compile('givemecoffee')
+RE_START = 'givemecoffee'
 
 # pattern to stop coffeepot
-RE_STOP = re.compile('thanksforcoffee')
+RE_STOP = 'thanksforcoffee'
 
 # Time between 2 lookups for a tweet (seconds)
 UPDATE_TIME = 30
