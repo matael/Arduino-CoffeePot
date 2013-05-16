@@ -39,17 +39,7 @@ import twitter
 import time
 import signal
 
-
-CONSUMER_KEY = 'mqEyn9WwVsYWU6wDLMD5Q'                        			 # coffee pot twitter API key
-CONSUMER_SECRET = 'TMWEjRXJRrVqh5pIMSV5mV2TYyGuwFEy2LirGBC3NQ'                   # coffee pot twitter api secret
-TOKEN_KEY = '1431541796-u5b2SpNKJq4zV4vLmmj7DYVOa77Ijc9Ewexkk4r'
-TOKEN_SECRET = 'PPeHIZ6foEZ356sEfnKhcXajiGFoDJjNK3k7SlX94'
-MASTER_NAME = u'haum72'                         				# coffeepot's master twitter name
-SERIAL_PORT = "/dev/ttyACM0"              # port where arduino is reachable
-RE_START = re.compile('givemecoffee')     # pattern to start coffeepot
-RE_STOP = re.compile('thanksforcoffee')   # pattern to stop coffeepot
-UPDATE_TIME = 30                          # Time between 2 lookups for a tweet
-
+from settings import *
 
 def setup_gpio():
     """ Setup function """
