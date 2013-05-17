@@ -68,10 +68,8 @@ def do_coffee(api):
     # check if twitto is one of the masters
     master_detected = False
     name = mention[0].user._screen_name
-    for m in MASTERS:
-        if m==name: master_detected = True
 
-    if master_detected:
+    if name in MASTERS:
         if RE_START.search(mention[0].text):
             print("Hey ! Let's make coffee !")
             GPIO.output(17, GPIO.HIGH)
