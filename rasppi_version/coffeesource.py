@@ -50,8 +50,9 @@ def setup_gpio():
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(17, GPIO.OUT, initial=GPIO.LOW)
 
-def SIGINT_handler(sig, fun):
-    """ Handler for sigterms
+def SIGINT_handler(sig, stack):
+    """
+    Handler for SIGINT
     Ensure a cleanup before exiting the program
     """
 
@@ -59,6 +60,22 @@ def SIGINT_handler(sig, fun):
     GPIO.cleanup()
     print('Quit...')
     sys.exit()
+
+
+def SIGUSR_handler(sig, stack):
+    """
+    Handler for SIGUSR1 and SIGUSR2
+
+    SIGUSR1 => switch on coffee pot
+    SIGUSR2 => switch off coffee pot
+    """
+
+    if sig==signal.SIGUSR1:
+        GPIO.output(17, GPIO.HIGH)
+        print('Forced state : CoffeePot ON')
+    elif sig==signal.SIGUSR2:
+        GPIO.output(17, GPIO.LOW)
+        print('Forced state : CoffeePot OFF')
 
 
 def do_coffee(api):
@@ -86,6 +103,8 @@ def do_coffee(api):
 def main():
     # setup interrupt handler for SIGTERM
     signal.signal(signal.SIGINT, SIGINT_handler)
+    signal.signal(signal.SIGUSR1, SIGUSR_handler)
+    signal.signal(signal.SIGUSR2, SIGUSR_handler)
     # let's create an instance of the api
     try:
         api = twitter.Api(consumer_key=CONSUMER_KEY,\
