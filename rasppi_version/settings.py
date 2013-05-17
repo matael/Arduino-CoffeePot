@@ -20,8 +20,10 @@ TOKEN_KEY = ''
 # Token  secret
 TOKEN_SECRET = ''
 
-# coffeepot's master twitter name
-MASTER_NAME = u''
+# coffeepot's master twitter name (list of unicode str)
+MASTERS = [
+    u'',
+]
 
 # pattern to start coffeepot
 RE_START = 'givemecoffee'
