@@ -118,6 +118,32 @@ def main():
 
     setup_gpio()
 
+    # print instructions
+    print("""
+CoffeePot Controller
+====================
+
+Process ID : {0}
+
+Commands :
+----------
+
+- SIGINT : graceful stop (with cleanup)
+- SIGUSR1 : force state : coffeepot ON
+- SIGUSR2 : force state : coffeepot OFF
+
+Forcing states :
+----------------
+
+- ON : $ sudo kill -10 {0}
+- ON : $ sudo kill -12 {0}
+
+Stop :
+------
+
+CTRL-C or $ sudo kill -2 {0}""".format(os.getpid()))
+
+
     print("Entering main loop....")
     while 1:
         do_coffee(api)
