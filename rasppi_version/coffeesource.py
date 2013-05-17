@@ -64,7 +64,14 @@ def SIGINT_handler(sig, fun):
 def do_coffee(api):
     """Must i send a signal to the coffee pot ?"""
     mention = api.GetMentions()[:1]
-    if mention[0].user._screen_name in MASTERS:
+
+    # check if twitto is one of the masters
+    master_detected = False
+    with mention[0].user._screen_name as name:
+        for m in MASTERS:
+            if m==name: master_detected = True
+
+    if master_detected:
         if RE_START.search(mention[0].text):
             print("Hey ! Let's make coffee !")
             GPIO.output(17, GPIO.HIGH)
