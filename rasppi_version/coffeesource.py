@@ -67,9 +67,9 @@ def do_coffee(api):
 
     # check if twitto is one of the masters
     master_detected = False
-    with mention[0].user._screen_name as name:
-        for m in MASTERS:
-            if m==name: master_detected = True
+    name = mention[0].user._screen_name
+    for m in MASTERS:
+        if m==name: master_detected = True
 
     if master_detected:
         if RE_START.search(mention[0].text):
